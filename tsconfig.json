@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    /* Docs: https://www.typescriptlang.org/tsconfig */
+    "target": "ES2021",
+    "module": "CommonJS",
+    "outDir": "dist",
+    "rootDir": "./src",
+    "baseUrl": "./src",
+    "strict": true,
+    "strictPropertyInitialization": false,
+    "noImplicitAny": false,
+    "strictNullChecks": true,
+    "checkJs": false,
+    "allowJs": false,
+    "moduleResolution": "node",
+    "types": ["node"],
+    "lib": ["es6"],
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowUnreachableCode": false,
+    "useUnknownInCatchVariables": false, // TypeScript 4.4+ only!
+    "sourceMap": true
+  },
+  "include": ["*.ts", "**/*.ts"],
+  "exclude": ["node_modules", "<node_internals>/**", "test/", "dist"]
+}

@@ -1,0 +1,28 @@
+version: '3.9'
+services:
+  postgres-node-boilerplate:
+    image: postgres
+    container_name: postgres-node-boilerplate
+    environment:
+      - POSTGRES_PASSWORD=postgres-node-boilerplate
+    ports:
+      - 5432:5432
+    networks:
+      - node-boilerplate
+    volumes:
+      - ./database:/docker-entrypoint-initdb.d
+
+  app:
+    build: .
+    container_name: node-typescript-boilerplate
+    ports:
+      - 3333:3333
+      - 9229:9229
+    depends_on:
+      - postgres-node-boilerplate
+    networks:
+      - node-boilerplate
+
+networks:
+  node-boilerplate:
+    driver: bridge
