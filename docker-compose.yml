@@ -7,8 +7,6 @@ services:
       - POSTGRES_PASSWORD=postgres-node-boilerplate
     ports:
       - 5432:5432
-    networks:
-      - node-boilerplate
     volumes:
       - ./database:/docker-entrypoint-initdb.d
 
@@ -20,9 +18,9 @@ services:
       - 9229:9229
     depends_on:
       - postgres-node-boilerplate
-    networks:
-      - node-boilerplate
 
 networks:
-  node-boilerplate:
-    driver: bridge
+  default:
+    external:
+      name: node-boilerplate
+

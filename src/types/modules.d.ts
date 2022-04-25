@@ -8,7 +8,7 @@ declare global {
       APP_PORT: number;
       APP_NODE_ENV: 'local' | 'development' | 'production';
 
-      SERVER_TYPE: 'express' | 'restify';
+      SERVER_TYPE: 'express' | 'restify' | 'fastify';
 
       POSTGRES_HOST: string;
       POSTGRES_PORT: string;
@@ -23,7 +23,7 @@ declare global {
           name: string;
           slug: string;
           nodeEnv: 'local' | 'development' | 'production';
-          serverType: 'express' | 'restify';
+          serverType: 'express' | 'restify' | 'fastify';
           logLevel: string;
           port: number;
         };

@@ -10,9 +10,11 @@ import {
 } from 'restify';
 
 import ExpressServer from './implementations/ExpressServer';
+import FastifyServer from './implementations/FastifyServer';
 import RestifyServer from './implementations/RestfyServer';
 
 const servers = {
+  fastify: () => new FastifyServer(),
   restify: () => new RestifyServer(),
   express: () => new ExpressServer(),
 };

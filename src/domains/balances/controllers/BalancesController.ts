@@ -41,6 +41,6 @@ export default class BalancesController
     );
     const balance = await showBalancesService.execute({ balance_id });
 
-    return response.json(balance);
+    return response.send(balance);
   }
 }
