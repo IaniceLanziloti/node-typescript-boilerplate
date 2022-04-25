@@ -9,7 +9,7 @@ interface IRequestDTO {
 }
 
 @injectable()
-export default class ShowBalancesServices {
+export default class ShowBalancesService {
   public constructor(
     @inject(TYPES.BalancesRepository)
     private balancesRepository: IBalancesRepository
@@ -19,6 +19,10 @@ export default class ShowBalancesServices {
 
   public async execute({ balance_id }: IRequestDTO): Promise<Balances | null> {
     const balance = await this.balancesRepository.findById(balance_id);
+
+    if (!balance) {
+      throw new Error('Balance not found');
+    }
 
     return balance;
   }

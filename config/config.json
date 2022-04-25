@@ -4,27 +4,31 @@
     "password": "postgres-node-boilerplate",
     "database": "node_boilerplate_db",
     "host": "postgres-node-boilerplate",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "logging": false
   },
   "development": {
     "username": "postgres",
     "password": "postgres-node-boilerplate",
     "database": "node_boilerplate_db",
     "host": "postgres-node-boilerplate",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "logging": false
   },
   "test": {
     "username": "postgres",
     "password": null,
     "database": "node_boilerplate_db_test",
     "host": "postgres-node-boilerplate",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "logging": false
   },
   "production": {
     "username": "postgres",
     "password": null,
     "database": "node_boilerplate_db_test",
     "host": "postgres-node-boilerplate",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "logging": false
   }
 }

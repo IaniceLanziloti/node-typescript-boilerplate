@@ -19,6 +19,7 @@ export default class Database {
         timestamps: false,
       },
       models: [Balances],
+      logging: false,
     });
 
     this.sequelize = new Sequelize(database, username, password, options);

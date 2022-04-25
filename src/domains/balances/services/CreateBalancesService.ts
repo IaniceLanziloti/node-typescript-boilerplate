@@ -1,16 +1,24 @@
+import { inject, injectable } from 'inversify';
+
+import { TYPES } from '../../../settings/types';
 import Balances from '../repositories/entities/Balances';
-import BalancesRepository from '../repositories/implementations/sequelize/BalancesRepository';
+import IBalancesRepository from '../repositories/interfaces/IBalancesRepository';
 
 interface IRequestDTO {
   type: number;
   amount: number;
 }
-
+@injectable()
 export default class CreateBalancesService {
-  public async execute({ type, amount }: IRequestDTO): Promise<Balances> {
-    const balancesRepository = new BalancesRepository();
+  public constructor(
+    @inject(TYPES.BalancesRepository)
+    private balancesRepository: IBalancesRepository
+  ) {
+    //
+  }
 
-    const balance = await balancesRepository.create({ type, amount });
+  public async execute({ type, amount }: IRequestDTO): Promise<Balances> {
+    const balance = await this.balancesRepository.create({ type, amount });
 
     return balance;
   }

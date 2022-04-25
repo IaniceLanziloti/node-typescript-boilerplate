@@ -5,7 +5,7 @@ import Balances from '../repositories/entities/Balances';
 import IBalancesRepository from '../repositories/interfaces/IBalancesRepository';
 
 @injectable()
-export default class ListBalancesServices {
+export default class ListBalancesService {
   public constructor(
     @inject(TYPES.BalancesRepository)
     private balancesRepository: IBalancesRepository

@@ -2,8 +2,9 @@ import { Container } from 'inversify';
 
 import BalancesRepository from '../../domains/balances/repositories/implementations/sequelize/BalancesRepository';
 import IBalancesRepository from '../../domains/balances/repositories/interfaces/IBalancesRepository';
-import ListBalancesServices from '../../domains/balances/services/ListBalancesService';
-import ShowBalancesServices from '../../domains/balances/services/ShowBalancesService';
+import CreateBalancesService from '../../domains/balances/services/CreateBalancesService';
+import ListBalancesService from '../../domains/balances/services/ListBalancesService';
+import ShowBalancesService from '../../domains/balances/services/ShowBalancesService';
 import { TYPES } from '../../settings/types';
 
 const container = new Container();
@@ -14,13 +15,18 @@ container
   .inSingletonScope();
 
 container
-  .bind<ListBalancesServices>('ListBalancesServices')
-  .to(ListBalancesServices)
+  .bind<CreateBalancesService>('CreateBalancesService')
+  .to(CreateBalancesService)
   .inSingletonScope();
 
 container
-  .bind<ShowBalancesServices>('ShowBalancesServices')
-  .to(ShowBalancesServices)
+  .bind<ListBalancesService>('ListBalancesService')
+  .to(ListBalancesService)
+  .inSingletonScope();
+
+container
+  .bind<ShowBalancesService>('ShowBalancesService')
+  .to(ShowBalancesService)
   .inSingletonScope();
 
 export default container;
