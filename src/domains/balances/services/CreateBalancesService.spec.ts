@@ -28,6 +28,7 @@ describe('Create balance service', () => {
     expect(balance).to.have.property('id');
     expect(balance?.type).to.eq(1);
     expect(balance?.amount).to.eq(350);
+
     assert(createSpy.withArgs({ amount: 350, type: 1 }).calledOnceWith);
   });
 });
