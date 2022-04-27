@@ -1,12 +1,12 @@
-import express, { Express } from 'express';
+import express, { Express, NextFunction, Request, Response } from 'express';
 
-import IServer from '../interfaces/IServer';
+import IServer, { IHandler } from '../interfaces/IServer';
 
 import BaseServer from './base/BaseServer';
 
 export default class ExpressServer
   extends BaseServer
-  implements IServer<Express>
+  implements IServer<Express, Request, Response, NextFunction>
 {
   private server: Express;
 
@@ -14,7 +14,42 @@ export default class ExpressServer
     super();
     this.server = express();
     this.server.use(express.json());
-    this.registerRoutes(this.server);
+    this.registerRoutes(this);
+  }
+
+  get(
+    path: string,
+    ...handles: IHandler<Request, Response, NextFunction>[]
+  ): void {
+    this.server.get(path, handles);
+  }
+
+  post(
+    path: string,
+    ...handles: IHandler<Request, Response, NextFunction>[]
+  ): void {
+    this.server.post(path, handles);
+  }
+
+  put(
+    path: string,
+    ...handles: IHandler<Request, Response, NextFunction>[]
+  ): void {
+    this.server.put(path, handles);
+  }
+
+  patch(
+    path: string,
+    ...handles: IHandler<Request, Response, NextFunction>[]
+  ): void {
+    this.server.patch(path, handles);
+  }
+
+  delete(
+    path: string,
+    ...handles: IHandler<Request, Response, NextFunction>[]
+  ): void {
+    this.server.delete(path, handles);
   }
 
   public listen(port: number): void {

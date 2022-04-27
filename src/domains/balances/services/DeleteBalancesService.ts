@@ -1,29 +1,28 @@
 import { inject, injectable } from 'inversify';
 
 import { TYPES } from '../../../settings/types';
-import Balances from '../repositories/entities/Balances';
 import IBalancesRepository from '../repositories/interfaces/IBalancesRepository';
 
 interface IRequestDTO {
-  type: number;
-  amount: number;
+  balance_id: string;
 }
+
 @injectable()
-export default class CreateBalancesService {
-  public constructor(
+export default class DeleteBalancesService {
+  constructor(
     @inject(TYPES.BalancesRepository)
     private balancesRepository: IBalancesRepository
   ) {
     //
   }
 
-  public async execute({ type, amount }: IRequestDTO): Promise<Balances> {
-    const balance = await this.balancesRepository.create({ type, amount });
+  public async execute({ balance_id }: IRequestDTO): Promise<void> {
+    const balance = await this.balancesRepository.findById(balance_id);
 
     if (!balance) {
       throw new Error('Balance not found');
     }
 
-    return balance;
+    await this.balancesRepository.delete(balance);
   }
 }

@@ -5,4 +5,6 @@ export default interface IBalancesRepository {
   find(): Promise<Balances[]>;
   findById(balance_id: string): Promise<Balances | null>;
   create(params: ICreateBalancesDTO): Promise<Balances>;
+
+  delete(balance: Balances): Promise<void>;
 }

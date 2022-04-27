@@ -2,6 +2,7 @@ import container from '../../../shared/container';
 import { Request, Response, Next } from '../../../shared/server';
 import IControllers from '../../../shared/server/interfaces/IContollers';
 import CreateBalancesService from '../services/CreateBalancesService';
+import DeleteBalancesService from '../services/DeleteBalancesService';
 import ListBalancesService from '../services/ListBalancesService';
 import ShowBalancesService from '../services/ShowBalancesService';
 
@@ -42,5 +43,19 @@ export default class BalancesController
     const balance = await showBalancesService.execute({ balance_id });
 
     return response.send(balance);
+  }
+
+  public async delete(request: Request, response: Response): Promise<Response> {
+    const { balance_id } = request.params;
+
+    const deleteBalancesService = container.get<DeleteBalancesService>(
+      'DeleteBalanceService'
+    );
+
+    await deleteBalancesService.execute({ balance_id });
+
+    response.status(204);
+
+    return response.send();
   }
 }

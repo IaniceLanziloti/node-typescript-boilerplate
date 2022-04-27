@@ -1,12 +1,12 @@
-import restify, { Server } from 'restify';
+import restify, { Server, Request, Response, Next } from 'restify';
 
-import IServer from '../interfaces/IServer';
+import IServer, { IHandler } from '../interfaces/IServer';
 
 import BaseServer from './base/BaseServer';
 
 export default class RestifyServer
   extends BaseServer
-  implements IServer<Server>
+  implements IServer<Server, Request, Response, Next>
 {
   private server: Server;
 
@@ -14,7 +14,27 @@ export default class RestifyServer
     super();
     this.server = restify.createServer();
     this.server.use(restify.plugins.jsonBodyParser());
-    this.registerRoutes(this.server);
+    this.registerRoutes(this);
+  }
+
+  get(path: string, ...handles: IHandler<Request, Response, Next>[]): void {
+    this.server.get(path, handles);
+  }
+
+  post(path: string, ...handles: IHandler<Request, Response, Next>[]): void {
+    this.server.post(path, handles);
+  }
+
+  put(path: string, ...handles: IHandler<Request, Response, Next>[]): void {
+    this.server.put(path, handles);
+  }
+
+  patch(path: string, ...handles: IHandler<Request, Response, Next>[]): void {
+    this.server.patch(path, handles);
+  }
+
+  delete(path: string, ...handles: IHandler<Request, Response, Next>[]): void {
+    this.server.del(path, handles);
   }
 
   public listen(port: number): void {

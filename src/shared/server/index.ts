@@ -13,6 +13,10 @@ import ExpressServer from './implementations/ExpressServer';
 import FastifyServer from './implementations/FastifyServer';
 import RestifyServer from './implementations/RestfyServer';
 
+export type Request = ExpressRequest | RestifyRequest;
+export type Response = ExpressResponse | RestifyResponse;
+export type Next = ExpressNext | RestifyNext;
+
 const servers = {
   fastify: () => new FastifyServer(),
   restify: () => new RestifyServer(),
@@ -22,7 +26,3 @@ const servers = {
 const server = servers[process.settings.app.serverType]();
 
 export default server;
-
-export type Request = ExpressRequest | RestifyRequest;
-export type Response = ExpressResponse | RestifyResponse;
-export type Next = ExpressNext | RestifyNext;

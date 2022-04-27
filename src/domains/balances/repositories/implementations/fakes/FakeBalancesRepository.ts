@@ -37,4 +37,10 @@ export default class FakeBalancesRepository implements IBalancesRepository {
 
     return balance;
   }
+
+  async delete(balance: Balances): Promise<void> {
+    this.balances = this.balances.filter(
+      (element) => element.id !== balance.id
+    );
+  }
 }
