@@ -1,5 +1,5 @@
-import { IRegisterRoute } from '../../../shared/server/interfaces/IRegisterRoute';
-import IServer from '../../../shared/server/interfaces/IServer';
+import { IRegisterRoute } from '../../../../shared/server/interfaces/IRegisterRoute';
+import IServer from '../../../../shared/server/interfaces/IServer';
 import BalancesController from '../controllers/BalancesController';
 
 const register: IRegisterRoute<IServer<any, any, any, any>> = (

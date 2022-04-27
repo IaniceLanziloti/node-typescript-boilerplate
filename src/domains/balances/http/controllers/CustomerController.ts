@@ -1,5 +1,5 @@
-import { Next, Request, Response } from '../../../shared/server';
-import IControllers from '../../../shared/server/interfaces/IContollers';
+import { Next, Request, Response } from '../../../../shared/server';
+import IControllers from '../../../../shared/server/interfaces/IContollers';
 
 export default class CustomersController
   implements IControllers<Request, Response, Next>

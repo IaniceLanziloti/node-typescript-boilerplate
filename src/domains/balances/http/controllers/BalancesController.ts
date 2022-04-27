@@ -1,10 +1,10 @@
-import container from '../../../shared/container';
-import { Request, Response, Next } from '../../../shared/server';
-import IControllers from '../../../shared/server/interfaces/IContollers';
-import CreateBalancesService from '../services/CreateBalancesService';
-import DeleteBalancesService from '../services/DeleteBalancesService';
-import ListBalancesService from '../services/ListBalancesService';
-import ShowBalancesService from '../services/ShowBalancesService';
+import container from '../../../../shared/container';
+import { Request, Response, Next } from '../../../../shared/server';
+import IControllers from '../../../../shared/server/interfaces/IContollers';
+import CreateBalancesService from '../../services/CreateBalancesService';
+import DeleteBalancesService from '../../services/DeleteBalancesService';
+import ListBalancesService from '../../services/ListBalancesService';
+import ShowBalancesService from '../../services/ShowBalancesService';
 
 export default class BalancesController
   implements IControllers<Request, Response, Next>
