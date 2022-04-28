@@ -72,7 +72,8 @@
     "import/resolver": {
       "node": {
         "extensions":[".ts", ".js"]
-      }
+      },
+      "typescript":{}
     }
   }
 }

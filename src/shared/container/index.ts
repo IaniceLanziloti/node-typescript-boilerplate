@@ -1,11 +1,10 @@
+import BalancesRepository from 'domains/balances/repositories/implementations/sequelize/BalancesRepository';
+import IBalancesRepository from 'domains/balances/repositories/interfaces/IBalancesRepository';
+import CreateBalancesService from 'domains/balances/services/CreateBalancesService';
+import ListBalancesService from 'domains/balances/services/ListBalancesService';
+import ShowBalancesService from 'domains/balances/services/ShowBalancesService';
 import { Container } from 'inversify';
-
-import BalancesRepository from '../../domains/balances/repositories/implementations/sequelize/BalancesRepository';
-import IBalancesRepository from '../../domains/balances/repositories/interfaces/IBalancesRepository';
-import CreateBalancesService from '../../domains/balances/services/CreateBalancesService';
-import ListBalancesService from '../../domains/balances/services/ListBalancesService';
-import ShowBalancesService from '../../domains/balances/services/ShowBalancesService';
-import { TYPES } from '../../settings/types';
+import { TYPES } from 'settings/types';
 
 const container = new Container();
 

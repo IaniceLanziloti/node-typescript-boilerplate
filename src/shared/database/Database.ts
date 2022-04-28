@@ -1,6 +1,5 @@
+import Balances from 'domains/balances/repositories/entities/Balances';
 import { Sequelize } from 'sequelize-typescript';
-
-import Balances from '../../domains/balances/repositories/entities/Balances';
 
 export default class Database {
   private sequelize: Sequelize;

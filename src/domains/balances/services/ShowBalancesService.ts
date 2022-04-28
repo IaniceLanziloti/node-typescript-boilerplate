@@ -1,6 +1,6 @@
 import { inject, injectable } from 'inversify';
+import { TYPES } from 'settings/types';
 
-import { TYPES } from '../../../settings/types';
 import Balances from '../repositories/entities/Balances';
 import IBalancesRepository from '../repositories/interfaces/IBalancesRepository';
 

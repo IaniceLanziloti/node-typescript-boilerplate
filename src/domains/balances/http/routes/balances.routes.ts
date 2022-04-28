@@ -1,9 +1,11 @@
-import { IRegisterRoute } from '../../../../shared/server/interfaces/IRegisterRoute';
-import IServer from '../../../../shared/server/interfaces/IServer';
+import { Next, Request, Response } from 'shared/server';
+import { IRegisterRoute } from 'shared/server/interfaces/IRegisterRoute';
+import IServer from 'shared/server/interfaces/IServer';
+
 import BalancesController from '../controllers/BalancesController';
 
-const register: IRegisterRoute<IServer<any, any, any, any>> = (
-  server: IServer<any, any, any, any>
+const register: IRegisterRoute<IServer<any, Request, Response, Next>> = (
+  server
 ) => {
   const balancesController = new BalancesController();
 
